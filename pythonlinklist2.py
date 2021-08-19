@@ -1,6 +1,6 @@
 class ListNode():     # 初始化 构造函数  
-    def __init__(self,value):  
-        self.value=value  
+    def __init__(self,val):  
+        self.value=val  
         self.next=None
 
 def Creatlist(n):  
@@ -93,26 +93,62 @@ def addTwoNumbers(l1, l2):
         tmp = tmp.next
     return ans
 
+def mergeTwoNumbers(l1, l2):
+    if l1 ==None and l2 ==None:
+            return None
+    ans = ListNode(0)
+    tmp = ans
+    while True:
+        if l1 != None and l2 != None:
+            if l1.val <= l2.val:
+                tmp.val = l1.val
+                l1 = l1.next
+            else:
+                tmp.val = l2.val
+                l2 = l2.next  
+        elif l1 == None and l2 !=None:
+            tmp.val = l2.val
+            if l2.next == None:
+                break
+            l2 = l2.next
+        elif l2 == None and l1 !=None:
+            tmp.val = l1.val
+            if l1.next == None:
+                break
+            l1 = l1.next
+        elif l1 == None and l2 == None:
+            break
+        
+        tmp.next = ListNode()
+        tmp = tmp.next 
+    return ans
+
 def main():  
-    print("Create a linklist")  
-    head=Creatlist(7)  
-    printlist(head)   
-    print("___________________________") 
-    print("Insert 9 after 3") 
-    insert(head,3,9)  
-    printlist(head)   
-    print("___________________________")
-    print("Delete 2") 
-    dellist(head,2)  
-    printlist(head)  
-    print("___________________________") 
-    print("afterappend 2") 
-    afterappend(head,2)  
-    printlist(head)   
-    print("___________________________") 
-    print("preappend 8") 
-    preappend(head,8)  
-    printlist(head) 
+    # print("Create a linklist")  
+    # head=Creatlist(7)  
+    # printlist(head)   
+    # print("___________________________") 
+    # print("Insert 9 after 3") 
+    # insert(head,3,9)  
+    # printlist(head)   
+    # print("___________________________")
+    # print("Delete 2") 
+    # dellist(head,2)  
+    # printlist(head)  
+    # print("___________________________") 
+    # print("afterappend 2") 
+    # afterappend(head,2)  
+    # printlist(head)   
+    # print("___________________________") 
+    # print("preappend 8") 
+    # preappend(head,8)  
+    # printlist(head) 
+    l1 = Creatlist(3)
+    l2 = Creatlist(4)
+    # printlist(l1)
+    printlist(l2)
+    mergeTwoNumbers(l1,l2)
+    printlist(l2)
 
 if __name__=='__main__':  
     main()   # 主函数调用 

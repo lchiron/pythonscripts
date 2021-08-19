@@ -1,7 +1,7 @@
 class Node(object):
     """单链表的结点"""
 
-    def __init__(self, item=0):
+    def __init__(self, item):
         # item存放数据元素
         self.item = item
         # next是下一个节点的标识
@@ -123,6 +123,9 @@ class SingleLinkList(object):
             tmp.next = Node(0)
             tmp = tmp.next
         return node
+
+    def mergeTwolist(self,l1,l2):
+        newlist = Node(l1.val)
 
 if __name__ == '__main__':
     link_list = SingleLinkList()
