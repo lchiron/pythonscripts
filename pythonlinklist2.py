@@ -73,6 +73,23 @@ def dellist(head,n):  # 删除链表
         p.next=q.next    # 把5放在3的后面  
     return head 
 
+def dellastlist(head, n):
+    if n<1 or n>self.listlen(head):  
+            return head 
+        if self.listlen(head) == 1:
+            return None
+        elif n == self.listlen(head):
+            head = head.next
+            return head
+        else:  
+            lenth = self.listlen(head)
+            p=head  
+            for i in range(1,lenth-n):    
+                p=p.next     # 循环到达 2次   
+            q=p.next  
+            p.next=q.next    # 把5放在3的后面  
+        return head 
+
 def addTwoNumbers(l1, l2):
     ans = ListNode(0)
     tmp = ans
